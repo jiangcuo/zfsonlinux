@@ -1,3 +1,9 @@
+zfs-linux (0.6.3-3~wheezy) unstable; urgency=low
+
+  * install init.d file for zed daemon
+
+ -- Proxmox Support Team <support@proxmox.com>  Sun, 15 Mar 2015 14:57:30 +0100
+
 zfs-linux (0.6.3-2~wheezy) unstable; urgency=low
 
   * use /sbin/modprobe to avoid warning inside initrd
