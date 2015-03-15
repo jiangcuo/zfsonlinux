@@ -1,4 +1,4 @@
-RELEASE=3.3
+RELEASE=3.4
 
 # source form https://github.com/zfsonlinux/
 
