@@ -102,6 +102,9 @@ override_dh_installinit:
 	dh_installinit --name=zfs-share \
 	  --no-restart-on-upgrade --no-start -- defaults 18 00
 
+	@# Install the /etc/init.d/zed script.
+	dh_installinit --name=zed
+
 
 override_dh_installudev:
 	dh_installudev --name=zvol --priority=60

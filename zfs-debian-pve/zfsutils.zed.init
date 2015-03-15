@@ -1,0 +1,46 @@
+#!/bin/sh
+
+### BEGIN INIT INFO
+# Provides:        zed
+# Required-Start:  $remote_fs $network $syslog zfs
+# Required-Stop:   $remote_fs $network $syslog zfs
+# Default-Start:   2 3 4 5
+# Default-Stop:    0 1 6
+# Short-Description: ZFS Event Daemon
+### END INIT INFO
+
+. /lib/lsb/init-functions
+
+PATH=/sbin:/bin:/usr/bin:/usr/sbin
+DAEMON=/sbin/zed
+NAME=zed
+DESC="ZFS Event Daemon"
+PIDFILE=/var/run/zed.pid
+
+test -f $DAEMON || exit 0
+
+case "$1" in
+	start)
+		log_daemon_msg "Starting $DESC" "$NAME"
+		start-stop-daemon --start --quiet --pidfile $PIDFILE --exec $DAEMON
+		log_end_msg $?
+  		;;
+	stop)
+		log_daemon_msg "Stopping $DESC" "$NAME"
+		start-stop-daemon --stop --quiet --retry TERM/2/TERM/15/KILL/2 --pidfile $PIDFILE
+		log_end_msg $?
+  		;;
+	restart|reload|force-reload)
+		log_daemon_msg "Restarting $DESC" "$NAME"
+		start-stop-daemon --stop --quiet --retry TERM/2/TERM/15/KILL/2 --pidfile $PIDFILE
+                start-stop-daemon --start --quiet --pidfile $PIDFILE --exec $DAEMON
+		log_end_msg $?
+  		;;
+	*)
+	        N=/etc/init.d/$NAME
+  		echo "Usage: $N {start|stop|restart|reload|force-reload}"
+  		exit 1
+		;;
+esac
+
+exit 0
