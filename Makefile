@@ -2,11 +2,11 @@ RELEASE=3.4
 
 # source form https://github.com/zfsonlinux/
 
-ZFSVER=0.6.3-1.2
-ZFSPKGREL=3~wheezy
+ZFSVER=0.6.4
+ZFSPKGREL=1~wheezy
 SPLPKGREL=1~wheezy
-ZFSPKGVER=0.6.3-${ZFSPKGREL}
-SPLPKGVER=0.6.3-${SPLPKGREL}
+ZFSPKGVER=${ZFSVER}-${ZFSPKGREL}
+SPLPKGVER=${ZFSVER}-${SPLPKGREL}
 
 SPLDIR=spl-spl-${ZFSVER}
 SPLSRC=spl-${ZFSVER}.tar.gz
@@ -54,8 +54,8 @@ download:
 	#git clone https://github.com/zfsonlinux/pkg-zfs.git
 	##git checkout master/ubuntu/precise
 	##git checkout master/debian/wheezy
-	rm spl-*.tar.gz
-	rm zfs-*.tar.gz
+	rm -f spl-*.tar.gz
+	rm -f zfs-*.tar.gz
 	wget https://github.com/zfsonlinux/spl/archive/${SPLSRC}
 	wget https://github.com/zfsonlinux/zfs/archive/${ZFSSRC}
 
