@@ -2,9 +2,11 @@ RELEASE=3.4
 
 # source form https://github.com/zfsonlinux/
 
+# also update version in 
+# zfs-changelog.Debian and spl-changelog.Debian
 ZFSVER=0.6.4
-ZFSPKGREL=1~wheezy
-SPLPKGREL=1~wheezy
+ZFSPKGREL=2~wheezy
+SPLPKGREL=2~wheezy
 ZFSPKGVER=${ZFSVER}-${ZFSPKGREL}
 SPLPKGVER=${ZFSVER}-${SPLPKGREL}
 
@@ -38,6 +40,8 @@ dinstall: ${DEBS}
 spl ${SPL_DEBS}: ${SPLSRC}
 	rm -rf ${SPLDIR}
 	tar xf ${SPLSRC}
+	mv ${SPLDIR}/debian/changelog ${SPLDIR}/debian/changelog.org
+	cat spl-changelog.Debian ${SPLDIR}/debian/changelog.org > ${SPLDIR}/debian/changelog
 	cd ${SPLDIR}; ln -s ../spl-patches patches
 	cd ${SPLDIR}; quilt push -a
 	cd ${SPLDIR}; rm -rf .pc ./patches
@@ -48,6 +52,8 @@ spl ${SPL_DEBS}: ${SPLSRC}
 zfs ${ZFS_DEBS}: ${ZFSSRC}
 	rm -rf ${ZFSDIR}
 	tar xf ${ZFSSRC}
+	mv ${ZFSDIR}/debian/changelog ${ZFSDIR}/debian/changelog.org
+	cat zfs-changelog.Debian ${ZFSDIR}/debian/changelog.org > ${ZFSDIR}/debian/changelog
 	cd ${ZFSDIR}; ln -s ../zfs-patches patches
 	cd ${ZFSDIR}; quilt push -a
 	cd ${ZFSDIR}; rm -rf .pc ./patches
