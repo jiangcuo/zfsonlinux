@@ -5,8 +5,8 @@ RELEASE=3.4
 # also update version in 
 # zfs-changelog.Debian and spl-changelog.Debian
 ZFSVER=0.6.4
-ZFSPKGREL=2~wheezy
-SPLPKGREL=2~wheezy
+ZFSPKGREL=3~wheezy
+SPLPKGREL=3~wheezy
 ZFSPKGVER=${ZFSVER}-${ZFSPKGREL}
 SPLPKGVER=${ZFSVER}-${SPLPKGREL}
 
@@ -63,11 +63,15 @@ zfs ${ZFS_DEBS}: ${ZFSSRC}
 .PHONY: download
 download:
 	rm -rf pkg-spl pkg-zfs ${SPLSRC} ${ZFSSRC}
-	git clone https://github.com/zfsonlinux/pkg-spl.git
-	git clone https://github.com/zfsonlinux/pkg-zfs.git
 	# list tags with:  git tag --list 'master/*'
+	git clone https://github.com/zfsonlinux/pkg-spl.git
+	# udate manually to 0.6.4.1 for now
+	cd pkg-spl; git checkout upstream
+	cd pkg-spl; git pull git://github.com/zfsonlinux/spl.git master
 	cd pkg-spl; git checkout master/debian/wheezy/0.6.4-1-wheezy
-	cd pkg-zfs; git checkout master/debian/wheezy/0.6.4-1-2-wheezy
+	cd pkg-spl; git	merge upstream -m "merge upstream"
+	git clone https://github.com/zfsonlinux/pkg-zfs.git
+	cd pkg-zfs; git checkout master/debian/wheezy/0.6.4-1.1-1-wheezy
 	tar czf ${SPLSRC} pkg-spl
 	tar czf ${ZFSSRC} pkg-zfs
 
