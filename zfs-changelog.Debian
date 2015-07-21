@@ -1,3 +1,11 @@
+zfs-linux (0.6.4-4~wheezy) unstable; urgency=low
+
+  * update to 0.6.4.2 (snapshot/debian/wheezy/0.6.4-21-53b1d9-wheezy)
+  
+  * use upstream version of /etc/default/zfs
+
+ -- Proxmox Support Team <support@proxmox.com>  Tue, 21 Jul 2015 07:17:40 +0200
+
 zfs-linux (0.6.4-3~wheezy) unstable; urgency=low
 
   * update to 0.6.4.1
