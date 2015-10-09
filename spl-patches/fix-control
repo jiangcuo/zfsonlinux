@@ -1,7 +1,7 @@
-Index: pkg-spl/debian/rules
+Index: new/debian/rules
 ===================================================================
---- pkg-spl.orig/debian/rules	2015-07-21 07:14:29.000000000 +0200
-+++ pkg-spl/debian/rules	2015-07-21 07:28:47.000000000 +0200
+--- new.orig/debian/rules	2015-10-09 10:02:21.000000000 +0200
++++ new/debian/rules	2015-10-09 10:12:04.000000000 +0200
 @@ -22,9 +22,7 @@
  KVERS=$(shell uname -r | sed 's/-$(DEB_HOST_ARCH)//')
  endif
@@ -82,11 +82,11 @@ Index: pkg-spl/debian/rules
  override_dh_dkms:
  	dh_dkms -V $(VERSION)
  
-Index: pkg-spl/debian/control.in
+Index: new/debian/control.in
 ===================================================================
---- pkg-spl.orig/debian/control.in	2015-07-21 07:14:29.000000000 +0200
-+++ pkg-spl/debian/control.in	2015-07-21 07:19:42.000000000 +0200
-@@ -33,28 +33,6 @@
+--- new.orig/debian/control.in	2015-10-09 10:02:21.000000000 +0200
++++ new/debian/control.in	2015-10-09 10:12:44.000000000 +0200
+@@ -35,30 +35,6 @@
   This package provides the source to the SPL kernel module in a form
   suitable for use by module-assistant or kernel-package.
  
@@ -95,6 +95,8 @@ Index: pkg-spl/debian/control.in
 -Depends: linux-headers-amd64, libc6-dev, ${misc:Depends}, dkms (>> 2.1.1.2-5), lsb-release, file
 -Recommends: spl (>= ${source:Upstream-Version})
 -Provides: spl-modules
+-Conflicts: spl-modules-source
+-Replaces: spl-modules-source
 -Description: Solaris Porting Layer kernel modules for Linux
 - The Solaris Porting Layer (SPL) is a Linux kernel module which provides
 - many of the Solaris kernel APIs. This shim layer makes it possible to

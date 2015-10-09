@@ -1,3 +1,9 @@
+spl-linux (0.6.5-1~wheezy) unstable; urgency=low
+
+  * update to master/debian/wheezy/0.6.5-1-wheezy
+
+ -- Proxmox Support Team <support@proxmox.com>  Fri, 09 Oct 2015 10:03:25 +0200
+
 spl-linux (0.6.4-4~wheezy) unstable; urgency=low
 
   * update to 0.6.4.2 (snapshot/debian/wheezy/0.6.4-6-37d7cd-wheezy)

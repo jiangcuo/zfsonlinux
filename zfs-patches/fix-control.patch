@@ -1,8 +1,8 @@
-Index: pkg-zfs/debian/control.in
+Index: new/debian/control.in
 ===================================================================
---- pkg-zfs.orig/debian/control.in	2015-07-21 07:14:46.000000000 +0200
-+++ pkg-zfs/debian/control.in	2015-07-21 07:48:21.000000000 +0200
-@@ -102,39 +102,9 @@
+--- new.orig/debian/control.in	2015-10-09 10:02:40.000000000 +0200
++++ new/debian/control.in	2015-10-09 10:15:36.000000000 +0200
+@@ -104,39 +104,9 @@
   This package provides the source to the SPL kernel module in a form
   suitable for use by module-assistant or kernel-package.
  
@@ -11,9 +11,9 @@ Index: pkg-zfs/debian/control.in
 -Pre-Depends: spl-dkms
 -Depends: dkms (>> 2.1.1.2-5), lsb-release, ${misc:Depends}, file
 -Recommends: zfsutils
--Replaces: lzfs, lzfs-dkms
+-Replaces: lzfs, lzfs-dkms, zfs-modules-source
 -Provides: lustre-backend-fs, lzfs, lzfs-dkms, zfs-modules, zfs-modules-source
--Conflicts: lzfs, lzfs-dkms
+-Conflicts: lzfs, lzfs-dkms, zfs-modules-source
 -Description: Native ZFS filesystem kernel modules for Linux
 - The Z file system is a pooled filesystem designed for maximum data
 - integrity, supporting data snapshots, multiple copies, and data
@@ -42,7 +42,7 @@ Index: pkg-zfs/debian/control.in
   zfsutils, ${misc:Depends}
  Description: Native ZFS root filesystem capabilities for Linux
   The Z file system is a pooled filesystem designed for maximum data
-@@ -148,7 +118,6 @@
+@@ -150,7 +120,6 @@
  Section: admin
  Architecture: linux-any
  Depends: initscripts, lsb-base, python, ${misc:Depends}, ${shlibs:Depends}
@@ -50,10 +50,10 @@ Index: pkg-zfs/debian/control.in
  Suggests: nfs-kernel-server, samba-common-bin (>= 3.0.23), zfs-initramfs
  Conflicts: zfs, zfs-fuse
  Replaces: zfs
-Index: pkg-zfs/debian/rules
+Index: new/debian/rules
 ===================================================================
---- pkg-zfs.orig/debian/rules	2015-07-21 07:14:46.000000000 +0200
-+++ pkg-zfs/debian/rules	2015-07-21 07:50:13.000000000 +0200
+--- new.orig/debian/rules	2015-10-09 10:02:40.000000000 +0200
++++ new/debian/rules	2015-10-09 10:14:14.000000000 +0200
 @@ -25,12 +25,10 @@
  endif
  
