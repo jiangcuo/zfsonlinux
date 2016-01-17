@@ -1,3 +1,9 @@
+zfs-linux (0.6.5-2~wheezy) unstable; urgency=low
+
+  * update to 0.6.5.4
+
+ -- Proxmox Support Team <support@proxmox.com>  Sun, 17 Jan 2016 14:44:55 +0100
+
 zfs-linux (0.6.5-1~wheezy) unstable; urgency=low
 
   * update to master/debian/wheezy/0.6.5.2-2-wheezy 
