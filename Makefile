@@ -5,8 +5,8 @@ RELEASE=3.4
 # also update version in 
 # zfs-changelog.Debian and spl-changelog.Debian
 ZFSVER=0.6.5
-ZFSPKGREL=2~wheezy
-SPLPKGREL=2~wheezy
+ZFSPKGREL=3~wheezy
+SPLPKGREL=3~wheezy
 ZFSPKGVER=${ZFSVER}-${ZFSPKGREL}
 SPLPKGVER=${ZFSVER}-${SPLPKGREL}
 
@@ -65,11 +65,10 @@ download:
 	rm -rf pkg-spl pkg-zfs ${SPLSRC} ${ZFSSRC}
 	# list tags with:  git tag --list 'master/*'
 	git clone https://github.com/zfsonlinux/pkg-spl.git
-	cd pkg-spl; git checkout spl-0.6.5-release
-	cd pkg-spl; git pull --no-edit git://github.com/zfsonlinux/spl.git spl-0.6.5-release
+	cd pkg-spl; git fetch https://github.com/zfsonlinux/spl.git spl-0.6.5-release
 	cd pkg-spl; git checkout master/debian/wheezy/0.6.5-1-wheezy
-	# manual merge spl-0.6.5-release
-	cd pkg-spl; git merge --no-edit spl-0.6.5-release
+	# manual merge spl-0.6.5.6
+	cd pkg-spl; git merge --no-edit spl-0.6.5.6
 	git clone https://github.com/zfsonlinux/pkg-zfs.git
 	cd pkg-zfs; git checkout -b zfs-0.6.5.4
 	cd pkg-zfs; git pull --no-edit git://github.com/zfsonlinux/zfs.git zfs-0.6.5-release
@@ -80,7 +79,7 @@ download:
 	cp zfs-import.in.backup pkg-zfs/etc/init.d/zfs-import.in
 	cd pkg-zfs; git add etc/init.d/zfs-import.in; git commit -m "fake add to allow merge"
 	# ignore etc/init.d/zfs-import.in
-	cd pkg-zfs; git merge --no-edit zfs-0.6.5.4
+	cd pkg-zfs; git merge --no-edit zfs-0.6.5.6
 	# remove stale file after merge
 	rm pkg-zfs/etc/init.d/zfs-import.in;
 	rmdir pkg-zfs/etc/init.d
