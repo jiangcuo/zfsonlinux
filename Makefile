@@ -81,4 +81,4 @@ distclean: clean
 
 .PHONY: upload
 upload: ${DEBS}
-	tar cf - ${DEBS} | ssh repoman@repo.proxmox.com --dist wheezy
+	tar -cf - ${DEBS} | ssh repoman@repo.proxmox.com upload --dist wheezy
