@@ -1,3 +1,9 @@
+spl-linux (0.6.5.7-5~bpo70) unstable; urgency=low
+
+  * rebuild using wheezy
+
+ -- Proxmox Support Team <support@proxmox.com>  Tue, 28 Jun 2016 15:41:00 +0200
+
 spl-linux (0.6.5.7-4~bpo70) unstable; urgency=low
 
   * update pkg-spl to spl-0.6.5.7-3-wheezy

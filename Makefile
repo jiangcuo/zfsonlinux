@@ -5,8 +5,8 @@ RELEASE=3.4
 # also update version in 
 # zfs-changelog.Debian and spl-changelog.Debian
 ZFSVER=0.6.5.7
-ZFSPKGREL=4~bpo70
-SPLPKGREL=4~bpo70
+ZFSPKGREL=5~bpo70
+SPLPKGREL=5~bpo70
 ZFSPKGVER=${ZFSVER}-${ZFSPKGREL}
 SPLPKGVER=${ZFSVER}-${SPLPKGREL}
 
