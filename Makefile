@@ -32,6 +32,9 @@ DEBS=${SPL_DEBS} ${ZFS_DEBS}
 
 all: ${DEBS}
 
+.PHONY: deb
+deb: ${DEBS}
+
 .PHONY: dinstall
 dinstall: ${DEBS}
 	dpkg -i ${DEBS}
