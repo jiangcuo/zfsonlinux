@@ -7,23 +7,23 @@ SRCDIR = upstream
 BUILDDIR ?= $(PACKAGE)-$(DEB_VERSION_UPSTREAM)
 ORIG_SRC_TAR = $(PACKAGE)_$(DEB_VERSION_UPSTREAM).orig.tar.gz
 
-ZFS_DEB1= libnvpair3linux_$(DEB_VERSION)_amd64.deb
+ZFS_DEB1= libnvpair3linux_$(DEB_VERSION)_$(DEB_BUILD_ARCH).deb
 
 ZFS_DEB_BINARY =				\
-libpam-zfs_$(DEB_VERSION)_amd64.deb		\
-libuutil3linux_$(DEB_VERSION)_amd64.deb		\
-libzfs4linux_$(DEB_VERSION)_amd64.deb		\
-libzfsbootenv1linux_$(DEB_VERSION)_amd64.deb	\
-libzpool5linux_$(DEB_VERSION)_amd64.deb		\
-zfs-test_$(DEB_VERSION)_amd64.deb			\
-zfsutils-linux_$(DEB_VERSION)_amd64.deb		\
-zfs-zed_$(DEB_VERSION)_amd64.deb
+libpam-zfs_$(DEB_VERSION)_$(DEB_BUILD_ARCH).deb		\
+libuutil3linux_$(DEB_VERSION)_$(DEB_BUILD_ARCH).deb		\
+libzfs4linux_$(DEB_VERSION)_$(DEB_BUILD_ARCH).deb		\
+libzfsbootenv1linux_$(DEB_VERSION)_$(DEB_BUILD_ARCH).deb	\
+libzpool5linux_$(DEB_VERSION)_$(DEB_BUILD_ARCH).deb		\
+zfs-test_$(DEB_VERSION)_$(DEB_BUILD_ARCH).deb			\
+zfsutils-linux_$(DEB_VERSION)_$(DEB_BUILD_ARCH).deb		\
+zfs-zed_$(DEB_VERSION)_$(DEB_BUILD_ARCH).deb
 
-ZFS_DBG_DEBS = $(patsubst %_$(DEB_VERSION)_amd64.deb, %-dbgsym_$(DEB_VERSION)_amd64.deb, $(ZFS_DEB1) $(ZFS_DEB_BINARY))
+ZFS_DBG_DEBS = $(patsubst %_$(DEB_VERSION)_$(DEB_BUILD_ARCH).deb, %-dbgsym_$(DEB_VERSION)_$(DEB_BUILD_ARCH).deb, $(ZFS_DEB1) $(ZFS_DEB_BINARY))
 
 ZFS_DEB2= $(ZFS_DEB_BINARY)			\
-libzfslinux-dev_$(DEB_VERSION)_amd64.deb		\
-python3-pyzfs_$(DEB_VERSION)_amd64.deb		\
+libzfslinux-dev_$(DEB_VERSION)_$(DEB_BUILD_ARCH).deb		\
+python3-pyzfs_$(DEB_VERSION)_$(DEB_BUILD_ARCH).deb		\
 pyzfs-doc_$(DEB_VERSION)_all.deb			\
 spl_$(DEB_VERSION)_all.deb			\
 zfs-initramfs_$(DEB_VERSION)_all.deb
