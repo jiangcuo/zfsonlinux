@@ -1,5 +1,6 @@
 #!/bin/sh
 set -e
+
 # The hostname and hostid of the last system to access a ZFS pool are stored in
 # the ZFS pool itself. A pool is foreign if, during `zpool import`, the
 # current hostname and hostid are different than the stored values thereof.
@@ -14,6 +15,14 @@ set -e
 if [ ! -f /etc/hostid ] || [ "$(stat -c %s /etc/hostid)" -lt 4 ] ; then
 	zgenhostid
 fi
+
+# When processed to here but zfs kernel module is not loaded, the subsequent
+# services would fail to start. In this case the installation process just
+# fails at the postinst stage. The user could do
+#   $ sudo modprobe zfs; sudo dpkg --configure -a
+# to complete the installation.
+#
+modprobe -v zfs || true # modprobe zfs does nothing if zfs.ko was already loaded.
 
 #DEBHELPER#
 

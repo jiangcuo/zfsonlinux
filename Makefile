@@ -14,9 +14,9 @@ ZFS_DEB1= libnvpair3linux_$(DEB_VERSION)_$(ARCH).deb
 ZFS_DEB_BINARY =				\
 libpam-zfs_$(DEB_VERSION)_$(ARCH).deb		\
 libuutil3linux_$(DEB_VERSION)_$(ARCH).deb		\
-libzfs4linux_$(DEB_VERSION)_$(ARCH).deb		\
 libzfsbootenv1linux_$(DEB_VERSION)_$(ARCH).deb	\
-libzpool5linux_$(DEB_VERSION)_$(ARCH).deb		\
+libzfs6linux_$(DEB_VERSION)_$(ARCH).deb  \
+libzpool6linux_$(DEB_VERSION)_$(ARCH).deb        \
 zfs-test_$(DEB_VERSION)_$(ARCH).deb			\
 zfsutils-linux_$(DEB_VERSION)_$(ARCH).deb		\
 zfs-zed_$(DEB_VERSION)_$(ARCH).deb
@@ -27,7 +27,6 @@ ZFS_DEB2= $(ZFS_DEB_BINARY)			\
 libzfslinux-dev_$(DEB_VERSION)_$(ARCH).deb		\
 python3-pyzfs_$(DEB_VERSION)_$(ARCH).deb		\
 pyzfs-doc_$(DEB_VERSION)_all.deb			\
-spl_$(DEB_VERSION)_all.deb			\
 zfs-initramfs_$(DEB_VERSION)_all.deb
 DEBS= $(ZFS_DEB1) $(ZFS_DEB2) $(ZFS_DBG_DEBS)
 
